@@ -34,6 +34,8 @@ jobs:
         with:
           path: ~/.foreman
           key: tools-${{ hashFiles('foreman.toml') }}
+      - name: Make lint script executable
+        run: chmod +x ./scripts/shell/lint.sh
       - name: Lint
         run: ./scripts/shell/lint.sh src
 
