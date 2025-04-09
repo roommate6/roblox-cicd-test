@@ -51,6 +51,8 @@ jobs:
         with:
           path: ~/.foreman
           key: tools-${{ hashFiles('foreman.toml') }}
+      - name: Make format script executable
+        run: chmod +x ./scripts/shell/check-format.sh
       - name: Check format
         run: ./scripts/shell/check-format.sh src
 
@@ -69,6 +71,8 @@ jobs:
         with:
           path: ~/.foreman
           key: tools-${{ hashFiles('foreman.toml') }}
+      - name: Make format test executable
+        run: chmod +x ./scripts/shell/test.sh
       - name: Run tests
         run: ./scripts/shell/test.sh default.project.json $TEST_TASK_FILE
         env:
